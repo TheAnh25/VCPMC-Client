@@ -1,13 +1,18 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .input-login {
+    @apply box-border flex flex-row items-center justify-center py-[10px]  gap-10 pl-3 bg-white border-[1.5px] border-solid border-[#D4D4D7] rounded-lg flex-none order-1 flex-grow-0;
+  }
+  .button-primary {
+    @apply flex flex-row justify-center items-center py-[10px] px-6 gap-2 text-white bg-[#FF9138] rounded-lg shadow-[#E7E9F2];
+  }
+  .button-cancel {
+    @apply flex flex-row justify-center items-center py-[10px] px-6 gap-2 text-[#FF7506] bg-[#FFF2E7] rounded-lg shadow-[#E7E9F2];
+  }
+  .button-cancel-white {
+    @apply flex flex-row justify-center items-center py-[10px] px-6 gap-2 text-[#FFAC6A] bg-[#FFFFFF] rounded-lg shadow-[#E7E9F2] border-[1.5px] border-solid border-[#FFAC6A];
+  }
 }
