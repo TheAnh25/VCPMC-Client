@@ -1,14 +1,16 @@
 import React from "react";
 import mcpmc_logo from "../assets/images/vcpmc_logo.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <>
       <div className="bg-[#020220] max-w-[170px] w-full">
-        <div className="bg-[#FFFFFF] rounded-full w-[96px] h-[96px] mx-auto mt-10 mb-[100px]">
-          <img src={mcpmc_logo} alt="" />
-        </div>
+        <Link to="/users">
+          <div className="bg-[#FFFFFF] rounded-full w-[96px] h-[96px] mx-auto mt-10 mb-[100px]">
+            <img src={mcpmc_logo} alt="" />
+          </div>
+        </Link>
         <div className=" h-full flex flex-col items-center text-[#C8C8DB] gap-6">
           {/* Kho bản ghi */}
 

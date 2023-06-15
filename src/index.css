@@ -3,16 +3,10 @@
 @tailwind utilities;
 
 @layer components {
-  .input-login {
-    @apply box-border flex flex-row items-center justify-center py-[10px]  gap-10 pl-3 bg-white border-[1.5px] border-solid border-[#D4D4D7] rounded-lg flex-none order-1 flex-grow-0;
-  }
   .button-primary {
-    @apply flex flex-row justify-center items-center py-[10px] px-6 gap-2 text-white bg-[#FF9138] rounded-lg shadow-[#E7E9F2];
+    @apply cursor-pointer bg-[#FF7506] border-[1px] border-solid border-[#FF7506] rounded-lg w-[168px] h-12 flex justify-center;
   }
   .button-cancel {
-    @apply flex flex-row justify-center items-center py-[10px] px-6 gap-2 text-[#FF7506] bg-[#FFF2E7] rounded-lg shadow-[#E7E9F2];
-  }
-  .button-cancel-white {
-    @apply flex flex-row justify-center items-center py-[10px] px-6 gap-2 text-[#FFAC6A] bg-[#FFFFFF] rounded-lg shadow-[#E7E9F2] border-[1.5px] border-solid border-[#FFAC6A];
+    @apply cursor-pointer border-[1px] border-solid border-[#FF7506] rounded-lg w-[168px] h-12 flex justify-center;
   }
 }

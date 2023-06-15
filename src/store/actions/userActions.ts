@@ -7,6 +7,7 @@ import {
   LOAD_USER_FAIL,
   LOGOUT_SUCCESS,
   LOGOUT_FAILURE,
+  CLEAR_LOGIN_SUCCESS,
 } from "../type";
 import axiosClient from "../../apis";
 import { Dispatch } from "@reduxjs/toolkit";
@@ -17,37 +18,43 @@ export const login =
     try {
       dispatch({ type: LOGIN_REQUEST });
 
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "access-control-allow-origin": "http://localhost:4444",
-        },
-        withCredentials: true,
-      };
+      const { data } = await axiosClient.post("/login", {
+        account_login,
+        password,
+      });
 
-      const { data } = await axiosClient.post(
-        "/login",
-        {
-          account_login,
-          password,
-        },
-        config
-      );
-      dispatch({ type: LOGIN_SUCCESS, payload: data.user });
-    } catch (err) {
+      if (data) {
+        localStorage.setItem("user", JSON.stringify(data));
+      }
+
+      dispatch({ type: LOGIN_SUCCESS, payload: data });
+    } catch (error) {
       dispatch({
         type: LOGIN_FAILURE,
+        payload: "Could not login",
       });
     }
   };
 
 export const logout = () => async (dispatch: Dispatch) => {
   try {
+    if (localStorage.getItem("user")) {
+      localStorage.removeItem("user");
+    }
+
     dispatch({ type: LOGOUT_SUCCESS });
   } catch (error) {
     dispatch({
       type: LOGOUT_FAILURE,
+      payload: "Could not logout",
     });
   }
+};
+
+export const loadUser = () => (dispatch: Dispatch) => {
+  dispatch({ type: LOAD_USER_SUCCESS });
+};
+
+export const clearLoginSuccess = () => (dispatch: Dispatch) => {
+  dispatch({ type: CLEAR_LOGIN_SUCCESS });
 };

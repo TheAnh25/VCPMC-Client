@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import { logout } from "../../store/actions/userActions";
 import { Link, useNavigate } from "react-router-dom";
 
-const Users = () => {
+const UpdateUser = () => {
   const { user } = useAppSelector((state) => state.user);
 
   const dispatch = useAppDispatch();
@@ -19,7 +19,7 @@ const Users = () => {
       toast.success("Logout success!");
       // @ts-ignore
       dispatch(logout());
-      navigate("/");
+      navigate("/login");
     }
   };
 
@@ -146,41 +146,17 @@ const Users = () => {
                     </div>
                   </div>
                 </div>
-                <div className="bg-[#2F2F41] w-[110px] rounded-l-lg max-h-[372px] h-full">
-                  <Link to="/users/update">
-                    <div className="flex flex-col justify-center items-center mt-4 mb-4 gap-[10px]">
-                      <div className="w-[52px] h-[52px] flex justify-center items-center bg-[#727288]  rounded-full">
-                        <i className="fa-solid fa-pen-to-square text-[#FF7506] font-semibold"></i>
-                      </div>
-                      <span className="text-[#FFFFFF] text-xs font-medium">
-                        Sửa thông tin
-                      </span>
-                    </div>
-                  </Link>
-                  <Link to="/users/changepassword">
-                    <div className="flex flex-col justify-center items-center mt-10 mb-10 gap-[10px]">
-                      <div className="w-[52px] h-[52px] flex justify-center items-center bg-[#727288]  rounded-full">
-                        <i className="fa-solid fa-unlock-keyhole text-[#FF7506] font-semibold"></i>
-                      </div>
-                      <span className="text-[#FFFFFF] text-xs font-medium">
-                        Đổi mật khẩu
-                      </span>
-                    </div>
-                  </Link>
-                  <form
-                    className="flex justify-center items-center"
-                    onSubmit={handleSubmitLogout}>
-                    <button type="submit">
-                      <div className="flex flex-col justify-center items-center my-4 gap-[10px]">
-                        <div className="w-[52px] h-[52px] flex justify-center items-center bg-[#727288] rounded-full">
-                          <i className="fa-regular fa-arrow-right-from-bracket text-[#FF7506] font-bold"></i>
-                        </div>
-                        <span className="text-[#FFFFFF] text-xs font-medium">
-                          Đăng xuất
-                        </span>
-                      </div>
-                    </button>
-                  </form>
+              </div>
+              <div className="flex justify-center items-center gap-8 mr-[192px]">
+                <Link to="/users">
+                  <div className="button-cancel">
+                    <button className="px-6 py-3 text-[#FF7506]">Hủy</button>
+                  </div>
+                </Link>
+                <div className="button-primary">
+                  <button className="px-6 py-3 text-[#FFFFFF] font-semibold text-base">
+                    Lưu
+                  </button>
                 </div>
               </div>
             </div>
@@ -191,4 +167,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default UpdateUser;

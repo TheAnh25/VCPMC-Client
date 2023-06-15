@@ -4,7 +4,7 @@
 // }
 
 export interface Auth {
-  user: User | null;
+  user?: User;
 }
 
 export interface Role {
@@ -13,15 +13,16 @@ export interface Role {
 }
 
 export interface User {
-  id: string | null;
-  first_name: string | null;
-  last_name: string | null;
-  phone_number: string | null;
-  email: string | null;
-  birthday: Date | null;
-  account_login: string | null;
-  password: string | null;
+  id: string;
+  first_name: string;
+  last_name: string;
+  phone_number: string;
+  email: string;
+  birthday: Date;
+  account_login: string;
+  password: string;
   role: Role;
+  avatar: string;
 }
 
 export interface Login {

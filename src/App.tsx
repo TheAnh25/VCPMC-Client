@@ -5,7 +5,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <BrowserRouter>
-      <Toaster position="top-center" toastOptions={{ duration: 500 }} />
+      <Toaster position="top-center" toastOptions={{ duration: 800 }} />
       <Layout />
     </BrowserRouter>
   );

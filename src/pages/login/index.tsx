@@ -10,7 +10,10 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { State } from "../../store";
 import toast from "react-hot-toast";
-import { login as loginAction } from "../../store/actions/userActions";
+import {
+  clearLoginSuccess,
+  login as loginAction,
+} from "../../store/actions/userActions";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import Dashboard from "../dashboard";
 import { Validation } from "../../constants/validation";
@@ -19,48 +22,58 @@ const Login = () => {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [user, setUser] = useState([]);
+  // const [user, setUser] = useState([]);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  // const { user, success, error } = useAppSelector((state) => state.user);
-
-  const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    axios
-      .post("http://localhost:4444/login", { account, password })
-      .then((res) => {
-        setUser(res.data);
-        toast.success("Login success !");
-        navigate("/");
-      })
-      .catch((err) => {
-        if (account === "") {
-          setErrorMessage("Tên đăng nhập và mật khẩu không được bỏ trống ");
-        } else {
-          setErrorMessage("Sai tên đăng nhập hoặc mật khẩu");
-        }
-
-        toast.error("Login Failed !");
-      });
-  };
-
-  console.log("user", user);
+  const { user, success, error } = useAppSelector((state) => state.user);
 
   // const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
   //   e.preventDefault();
-  //   const loadingId = toast.loading("Loading", { duration: 300 });
-  //   dispatch(loginAction(account, password));
-  //   toast.remove(loadingId);
+  //   axios
+  //     .post("http://localhost:4444/login", { account, password })
+  //     .then((res) => {
+  //       setUser(res.data);
+  //       toast.success("Login success !");
+  //       navigate("/");
+  //     })
+  //     .catch((err) => {
+  //       if (account === "") {
+  //         setErrorMessage("Tên đăng nhập và mật khẩu không được bỏ trống ");
+  //       } else {
+  //         setErrorMessage("Sai tên đăng nhập hoặc mật khẩu");
+  //       }
+
+  //       toast.error("Login Failed !");
+  //     });
   // };
 
-  // useEffect(() => {
-  //   if (user) {
-  //     toast.success("Login success!");
-  //     navigate("/");
-  //   } else {
-  //   }
-  // }, [user, navigate]);
+  console.log("user", user);
+
+  const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const loadingId = toast.loading("Loading", { duration: 300 });
+    // @ts-ignore
+    dispatch(loginAction(account, password));
+    // // @ts-ignore
+    // dispatch(clearLoginSuccess());
+    toast.remove(loadingId);
+  };
+
+  useEffect(() => {
+    if (user) {
+      toast.success("Login success!");
+      navigate("/records");
+    }
+    if (error) {
+      if (account === "") {
+        setErrorMessage("Tên đăng nhập và mật khẩu không được bỏ trống ");
+      } else {
+        setErrorMessage("Sai tên đăng nhập hoặc mật khẩu");
+      }
+    }
+  }, [user, navigate, error]);
 
   return (
     <>

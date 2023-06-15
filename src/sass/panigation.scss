@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css?family=Manjari:400,700&display=swap");
+
+.ant-pagination {
+  .ant-pagination-item > a {
+    color: #f5f5ff;
+  }
+
+  .ant-pagination-prev .ant-pagination-item-link .anticon {
+    color: #ffffff;
+  }
+  .ant-pagination-next .ant-pagination-item-link .anticon {
+    color: #ffffff;
+  }
+  .ant-pagination-item-active {
+    background: #ff750680;
+    border-radius: 100%;
+    border: none;
+  }
+}

@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-
 import Navbar from "../../components/navbar";
 import Header from "../../components/header";
 
@@ -11,7 +10,7 @@ const Dashboard = () => {
         <Navbar />
         <div className="bg-[#1E1E2E] w-full">
           <Header />
-          <div className="">b</div>
+          <div className="text-[#FFFFFF] font-bold text-lg">Dashboard</div>
         </div>
       </div>
     </>
