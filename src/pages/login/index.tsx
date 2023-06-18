@@ -26,6 +26,17 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleChecked = () => {
+    if (isChecked) {
+      setIsChecked(false);
+    } else {
+      setIsChecked(true);
+    }
+    console.log(isChecked);
+  };
+
   const { user, success, error } = useAppSelector((state) => state.user);
 
   // const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
@@ -158,8 +169,11 @@ const Login = () => {
                   </div>
                 )}
 
-                <div className="mt-5">
-                  <CheckBox titleCheckbox="Ghi nhớ đăng nhập" />
+                <div onChange={handleChecked} className="mt-5">
+                  <CheckBox
+                    isChecked={isChecked}
+                    titleCheckbox="Ghi nhớ đăng nhập"
+                  />
                 </div>
                 <div className="bg-[#FF7506] rounded-lg mx-auto flex justify-center items-center w-[208px] mt-12">
                   <button

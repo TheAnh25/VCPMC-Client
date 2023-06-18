@@ -9,7 +9,6 @@ const UpdateRecord: React.FC = () => {
   const { id } = useParams();
 
   const [detailRecord, setDetailRecord] = useState([]);
-  const [selectedRole, setSelectedRole] = useState([]);
 
   useEffect(() => {
     axios
@@ -39,14 +38,6 @@ const UpdateRecord: React.FC = () => {
     producer: "",
     category: "",
   });
-
-  // const handleSelectCategoryChange = (e: React.FormEvent<HTMLFormElement>) => {
-  //   const options = Array.from(e.target.options)
-  //     .filter((option) => option.selected)
-  //     .map((option) => option.value);
-
-  //   setSelectedRole(options);
-  // };
 
   return (
     <>

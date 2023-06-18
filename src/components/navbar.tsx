@@ -33,19 +33,45 @@ const Navbar = () => {
             </div>
           </NavLink>
           {/* Playlist  */}
-          <div className="w-full">
-            <div className="flex flex-col items-center gap-1 py-2">
-              <i className="fa-solid fa-list"></i>
-              <span className="font-medium text-[14px]">Playlist</span>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                backgroundColor: isActive ? "" : "",
+                width: isActive ? "200px" : "",
+                height: isActive ? "48px" : "",
+                color: isActive ? "#FF7506" : "#C8C8DB",
+                display: isActive ? "inline-block" : "",
+              };
+            }}
+            to="/playlist">
+            <div className="w-full">
+              <div className="flex flex-col items-center gap-1 py-2">
+                <i className="fa-solid fa-list"></i>
+                <span className="font-medium text-[14px]">Playlist</span>
+              </div>
             </div>
-          </div>
+          </NavLink>
+
           {/* Lập lịch phát */}
-          <div className="w-full">
-            <div className="flex flex-col items-center gap-1 py-2">
-              <i className="fa-solid fa-calendar-days"></i>
-              <span className="font-medium text-[14px]">Lập lịch phát</span>
+          <NavLink
+            style={({ isActive }) => {
+              return {
+                backgroundColor: isActive ? "" : "",
+                width: isActive ? "200px" : "",
+                height: isActive ? "48px" : "",
+                color: isActive ? "#FF7506" : "#C8C8DB",
+                display: isActive ? "inline-block" : "",
+              };
+            }}
+            to="/schedule">
+            <div className="w-full">
+              <div className="flex flex-col items-center gap-1 py-2">
+                <i className="fa-solid fa-calendar-days"></i>
+                <span className="font-medium text-[14px]">Lập lịch phát</span>
+              </div>
             </div>
-          </div>
+          </NavLink>
+
           {/* Quản lý */}
 
           <NavLink

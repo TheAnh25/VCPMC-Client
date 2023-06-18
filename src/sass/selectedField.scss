@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Manjari:400,700&display=swap");
+
+.ant-select {
+  width: 120px;
+}
+
+.ant-select-selector {
+  background-color: #1e1e2e !important;
+  height: 42px !important;
+
+  padding: 12px 20px !important;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid #ff7506 !important;
+  border-radius: 8px;
+}
+
+.ant-select-selection-item {
+  color: #f5f5ff !important;
+}
+
+.anticon {
+  color: #ff7506;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ant-select-selection-search-input {
+  background: red !important;
+}
