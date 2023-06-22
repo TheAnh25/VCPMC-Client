@@ -77,16 +77,15 @@ const Navbar = () => {
           <NavLink
             style={({ isActive }) => {
               return {
-                backgroundColor: isActive ? "#FF7506" : "",
                 width: isActive ? "100%" : "100%",
                 height: isActive ? "48px" : "",
-                color: isActive ? "#FFFFFF" : "#C8C8DB",
+                color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
             }}
-            to="/setting">
+            to="/contract">
             <div className="relative group">
-              <NavLink to="/setting/managerole">
+              <NavLink to="/contract/managecontract">
                 {" "}
                 <div className="w-full flex justify-center items-center gap-6">
                   <div className="flex flex-col items-center gap-1 py-2 ml-7">
@@ -109,14 +108,14 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/managerole">
-                      <div className="w-full ">
+                      to="/contract/managecontract">
+                      <div className=" ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Quản lý hợp đồng
                         </div>
@@ -131,7 +130,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
@@ -174,7 +173,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",

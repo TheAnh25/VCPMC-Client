@@ -15,7 +15,7 @@ import {
 
 const AddRecordNewPlaylist: React.FC = () => {
   const [records, setRecords] = useState([]);
-  console.log(records);
+
   useEffect(() => {
     axios
       .get("http://localhost:4444/records")

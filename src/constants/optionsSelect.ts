@@ -85,3 +85,35 @@ export const optionsPlaylist = [
     label: "Playlist 4",
   },
 ];
+
+// Quyền sở hữu
+export const optionsAuthorized = [
+  {
+    value: 1,
+    label: "Người biểu diễn",
+  },
+  {
+    value: 2,
+    label: "Nhà sản xuất",
+  },
+];
+
+// Quyền sở hữu
+export const optionsStatusContract = [
+  {
+    value: 1,
+    label: "Mới",
+  },
+  {
+    value: 2,
+    label: "Còn thời hạn",
+  },
+  {
+    value: 3,
+    label: "Hết hạn",
+  },
+  {
+    value: 4,
+    label: "Huỷ",
+  },
+];

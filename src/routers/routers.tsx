@@ -18,6 +18,10 @@ import AddRecordPlaylist from "../pages/play-list/addRecordPlaylist";
 import AddRecordNewPlaylist from "../pages/play-list/addRecordNewPlaylist";
 import Schedule from "../pages/schedule";
 import DetailSchedule from "../pages/schedule/detailSchedule";
+import AddSchedule from "../pages/schedule/addSchedule";
+import UpdateSchedule from "../pages/schedule/updateSchedule";
+import AddDevices from "../pages/schedule/addDevices";
+import Contract from "../pages/contracts";
 
 const Routers = () => {
   return (
@@ -48,7 +52,13 @@ const Routers = () => {
       />
       {/* schedule  */}
       <Route path="/schedule" element={<Schedule />} />
+      <Route path="/schedule/add" element={<AddSchedule />} />
+      <Route path="/schedule/add/devices" element={<AddDevices />} />
       <Route path="/schedule/detail/:id" element={<DetailSchedule />} />
+      <Route path="/schedule/detail/:id/update" element={<UpdateSchedule />} />
+
+      {/* contract  */}
+      <Route path="/contract/managecontract" element={<Contract />} />
     </Routes>
   );
 };

@@ -4,16 +4,34 @@ import Header from "../../components/header";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Paginations from "../../components/pagination";
+import CheckBoxItem from "../../components/checkboxItem";
+import CheckBox from "../../components/checkbox";
 
-const DetailSchedule: React.FC = () => {
-  const { id } = useParams();
-  const [detailSchedule, setDetailSchedule] = useState([]);
+const AddDevices: React.FC = () => {
+  const [devices, setDevices] = useState([]);
+  const [checkedItem, setCheckedItem] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
+  const handleCheckedItem = () => {
+    if (checkedItem) {
+      setCheckedItem(false);
+    } else {
+      setCheckedItem(true);
+    }
+  };
+
+  const handleChecked = () => {
+    if (isChecked) {
+      setIsChecked(false);
+    } else {
+      setIsChecked(true);
+    }
+  };
   useEffect(() => {
     axios
-      .get("http://localhost:4444/schedule/" + id)
+      .get("http://localhost:4444/devices")
       .then((res) => {
-        setDetailSchedule(res.data);
+        setDevices(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -22,7 +40,7 @@ const DetailSchedule: React.FC = () => {
 
   return (
     <>
-      {detailSchedule && (
+      {devices && (
         <div className="bg-[#1E1E2E] min-h-[929px] h-full flex rounded-r-3xl">
           <Navbar />
           <div className=" w-full">
@@ -38,24 +56,29 @@ const DetailSchedule: React.FC = () => {
                   <div>
                     <i className="fa-solid fa-angle-right text-[#FFAC69]"></i>
                   </div>
+                  <div>
+                    <p className="  font-semibold text-[16px] text-[#7E7D88] ">
+                      Thêm lịch phát mới
+                    </p>
+                  </div>
+                  <div>
+                    <i className="fa-solid fa-angle-right text-[#FFAC69]"></i>
+                  </div>
 
                   <div>
                     <p className="text-[#FF7506] text-[16px] font-semibold ">
-                      Chi tiết
+                      Áp lịch cho thiết bị
                     </p>
                   </div>
                 </div>
                 <span className="text-[#FFFFFF] text-4xl font-bold">
-                  Lịch phát số 1
+                  Danh sách thiết bị
                 </span>
               </div>
 
               {/* Cotent Record  */}
               <div className="flex gap-10 justify-between ">
                 <div className="flex flex-col gap-6">
-                  <span className="text-[#FFF9F4] text-2xl font-bold">
-                    Danh sách Playlist
-                  </span>
                   <div className=" max-w-[1541px] w-full flex-col gap-6">
                     <div className="bg-[#2F2F41] flex flex-col justify-between gap-[50px] h-[572px] rounded-2xl">
                       {/* Table List Record */}
@@ -63,41 +86,62 @@ const DetailSchedule: React.FC = () => {
                         <thead>
                           <table className="shadow-lg w-full table-fixed tab">
                             <tr className="text-[#FFAC69] text-base font-bold bg-[#2F2F41]">
-                              <th className="w-16 pt-4">STT</th>
-                              <th className="w-[350px]">Tên Playlist</th>
-                              <th>Ngày phát Playlist</th>
-                              <th>Bắt đầu - Kết thúc</th>
-                              <th>Chu kỳ phát</th>
-                              <th>Thiết bị</th>
+                              <th
+                                className="w-16 pt-4"
+                                onChange={handleChecked}>
+                                <CheckBox
+                                  isChecked={isChecked}
+                                  titleCheckbox=""
+                                />
+                              </th>
+                              <th className="w-16">STT</th>
+                              <th>Tên thiết bị</th>
+                              <th>MAC Address</th>
+                              <th>SKU/ID</th>
+                              <th>Đơn vị sử dụng</th>
+                              <th>Tên đăng nhập</th>
+                              <th className="w-[450px]">Địa điểm hoạt động</th>
                             </tr>
-                            {detailSchedule?.map((val: any) => {
+                            {devices?.map((val: any) => {
                               return (
                                 <tbody className="bg-[#2F2F41] text-[#FFFFFF]">
                                   <tr
                                     key={val.id}
                                     className="text[#535261] text-[14px] font-normal ">
-                                    <td className="text-center py-3 ">1</td>
-                                    <td className="text-center">
-                                      {val.name_playlist}
+                                    {isChecked ? (
+                                      <td className="text-center py-3 ">
+                                        <CheckBox
+                                          isChecked={isChecked}
+                                          titleCheckbox=""
+                                        />
+                                      </td>
+                                    ) : (
+                                      <td className="text-center py-3 ">
+                                        <CheckBoxItem titleCheckbox="" />
+                                      </td>
+                                    )}
+
+                                    <td className="text-center py-3 ">
+                                      {val.id}
                                     </td>
-                                    <td className="text-center  ">
-                                      {new Date(
-                                        val.start_date
-                                      ).toLocaleDateString("en-GB")}
-                                      -{" "}
-                                      {new Date(
-                                        val.end_date
-                                      ).toLocaleDateString("en-GB")}
+                                    <td className="text-center">
+                                      {val.name_device}
                                     </td>
 
                                     <td className="text-center  ">
-                                      {val.start_time} - {val.end_time}
+                                      {val.mac_address}
                                     </td>
                                     <td className="text-center  ">
-                                      {val.broadcast_schedule}
+                                      {val.id_device}
                                     </td>
                                     <td className="text-center  ">
-                                      {val.name_device}
+                                      {val.store}
+                                    </td>
+                                    <td className="text-center  ">
+                                      {val.name_login}
+                                    </td>
+                                    <td className="text-center  ">
+                                      {val.location}
                                     </td>
                                   </tr>
                                 </tbody>
@@ -122,17 +166,31 @@ const DetailSchedule: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <Link to={`/schedule/detail/${id}/update`}>
-                  <div className="bg-[#2F2F41] px-4 h-[130px] hover:cursor-pointer rounded-l-2xl flex flex-col gap-2 justify-center items-center">
+
+                <div className="bg-[#2F2F41] h-[200px] px-4 hover:cursor-pointer rounded-l-2xl flex flex-col gap-2 justify-center items-center">
+                  <div className="bg-[#2F2F41] hover:cursor-pointer rounded-l-2xl flex flex-col gap-2 justify-center items-center">
                     <div className="w-[52px] h-[52px] rounded-full bg-[#72728880] flex  justify-center items-center">
-                      <i className="fa-solid fa-pen-to-square text-[#FF7506] text-2xl font-bold"></i>
+                      <i className="fa-solid fa-check text-[#FF7506] text-2xl font-bold"></i>
                     </div>
 
                     <span className="text-[#FFFFFF] text-center font-medium text-xs">
-                      Chỉnh sửa lịch phát
+                      Lưu
                     </span>
                   </div>
-                </Link>
+
+                  <Link to="/schedule">
+                    <div>
+                      <div className="w-[52px] h-[52px] rounded-full bg-[#72728880] flex  justify-center items-center">
+                        <i className="fa-solid fa-x text-[#FF7506] text-2xl font-bold"></i>
+                      </div>
+                      <div className="text-center">
+                        <span className="text-[#FFFFFF] font-medium text-xs">
+                          Hủy
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -142,4 +200,4 @@ const DetailSchedule: React.FC = () => {
   );
 };
 
-export default DetailSchedule;
+export default AddDevices;
