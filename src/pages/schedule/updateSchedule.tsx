@@ -141,7 +141,6 @@ const UpdateSchedule: React.FC = () => {
                   <div className="w-[52px] h-[52px] rounded-full bg-[#72728880] flex  justify-center items-center">
                     <i className="fa-solid fa-pen-to-square text-[#FF7506] text-2xl font-bold"></i>
                   </div>
-
                   <span className="text-[#FFFFFF] w-[52px] text-center font-medium text-xs">
                     Áp lịch cho thiết bị
                   </span>

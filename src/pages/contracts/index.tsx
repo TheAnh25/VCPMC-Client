@@ -16,6 +16,7 @@ import { Modal, Ripple, initTE } from "tw-elements";
 
 const Contract: React.FC = () => {
   const [contract, setContract] = useState([]);
+  const [exploitation, setExploitation] = useState([]);
   const [isChecked, setIsChecked] = useState(false);
 
   useEffect(() => {
@@ -24,6 +25,14 @@ const Contract: React.FC = () => {
       .get("http://localhost:4444/contract")
       .then((res) => {
         setContract(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    axios
+      .get("http://localhost:4444/exploitation")
+      .then((res) => {
+        setExploitation(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -110,52 +119,53 @@ const Contract: React.FC = () => {
                 </div>
               </div>
               {/* Cotent Record  */}
-              <div className="flex gap-10 justify-between ">
-                <div className=" max-w-[1541px] w-full flex-col gap-6">
-                  <div className="max-w-full flex justify-between">
-                    <div className="flex  w-full gap-16">
-                      {/* Thể loại: */}
-                      <div className=" flex gap-4 items-center">
-                        <span className="font-semibold text-base text-[#FFFFFF]">
-                          Quyền sở hữu:
-                        </span>
-                        <div>
-                          <Select
-                            options={optionsAuthorized}
-                            defaultValue={`Tất cả`}
-                            style={{
-                              width: 160,
-                            }}
-                          />
+              {isTable ? (
+                <div className="flex gap-10 justify-between ">
+                  <div className=" max-w-[1541px] w-full flex-col gap-6">
+                    <div className="max-w-full flex justify-between">
+                      <div className="flex  w-full gap-16">
+                        {/* Thể loại: */}
+                        <div className=" flex gap-4 items-center">
+                          <span className="font-semibold text-base text-[#FFFFFF]">
+                            Quyền sở hữu:
+                          </span>
+                          <div>
+                            <Select
+                              options={optionsAuthorized}
+                              defaultValue={`Tất cả`}
+                              style={{
+                                width: 160,
+                              }}
+                            />
+                          </div>
+                        </div>
+                        {/* Định dạng  */}
+                        <div className=" flex gap-4 items-center">
+                          <span className="font-semibold text-base text-[#FFFFFF]">
+                            Hiệu lực hợp đồng:
+                          </span>
+                          <div>
+                            <Select
+                              options={optionsStatusContract}
+                              defaultValue={`Tất cả`}
+                              style={{
+                                width: 160,
+                              }}
+                            />
+                          </div>
                         </div>
                       </div>
-                      {/* Định dạng  */}
-                      <div className=" flex gap-4 items-center">
-                        <span className="font-semibold text-base text-[#FFFFFF]">
-                          Hiệu lực hợp đồng:
-                        </span>
-                        <div>
-                          <Select
-                            options={optionsStatusContract}
-                            defaultValue={`Tất cả`}
-                            style={{
-                              width: 160,
-                            }}
+                      <div className="max-w-[517px] w-full">
+                        <div className="flex cursor-pointer gap-1 items-center bg-[#2B2B3F] max-h-11 h-full px-6 py-3 rounded-lg ">
+                          <input
+                            className=" focus:outline-none text-base  bg-[#2B2B3F] font-normal text-[#727288] w-full h-full"
+                            placeholder="Tên hợp đồng, số hợp đồng, người uỷ quyền..."
                           />
+                          <i className="fa-solid fa-magnifying-glass text-[#F5F5FF]"></i>
                         </div>
                       </div>
                     </div>
-                    <div className="max-w-[517px] w-full">
-                      <div className="flex cursor-pointer gap-1 items-center bg-[#2B2B3F] max-h-11 h-full px-6 py-3 rounded-lg ">
-                        <input
-                          className=" focus:outline-none text-base  bg-[#2B2B3F] font-normal text-[#727288] w-full h-full"
-                          placeholder="Tên hợp đồng, số hợp đồng, người uỷ quyền..."
-                        />
-                        <i className="fa-solid fa-magnifying-glass text-[#F5F5FF]"></i>
-                      </div>
-                    </div>
-                  </div>
-                  {isTable ? (
+
                     <div className="bg-[#2F2F41] mt-6 flex flex-col justify-between gap-[50px] h-[572px] rounded-2xl">
                       <div className="w-full shrink-0 flex ">
                         <thead>
@@ -214,11 +224,12 @@ const Contract: React.FC = () => {
                                     </td>
 
                                     <td>
-                                      {/* <Link to={`/device/updatedevice/${val.id}`}> */}
-                                      <td className=" flex justify-center  text-[#FF7506] underline text-xs font-semibold">
-                                        Xem chi tiết
-                                      </td>
-                                      {/* </Link> */}
+                                      <Link
+                                        to={`/contract/managecontract/detailAuthorizationContract/${val.id}`}>
+                                        <td className=" flex justify-center  text-[#FF7506] underline text-xs font-semibold">
+                                          Xem chi tiết
+                                        </td>
+                                      </Link>
                                     </td>
                                     {val.status ? (
                                       <td className="text-center  "></td>
@@ -315,104 +326,145 @@ const Contract: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  ) : (
-                    <div className=" mt-6 flex flex-col justify-between gap-[50px] h-[572px] rounded-2xl">
-                      {/* Table List Record */}
-                      <div className="grid grid-cols-4">
-                        {contract?.map((val: any) => {
-                          return (
-                            <div className="">
-                              <div
-                                key={val.id}
-                                className="bg-[#393955B2] rounded-lg w-[342px] flex flex-col gap-2">
-                                <div className="w-full">
-                                  <img
-                                    className=" w-full rounded-t-lg h-[156px] object-cover"
-                                    src={val.thumbnail}
-                                    alt=""
-                                  />
-                                </div>
-                                <div>
-                                  {/* Thông tin  */}
-                                  <div className="flex flex-col gap-1 px-4">
-                                    <div className="flex flex-col gap-[2px]">
-                                      <span className="text-[#FFFFFF] font-semibold text-base">
-                                        Handcrafted Fresh Bacon Multy
-                                      </span>
-                                      <span className="text-[#FFFFFF] font-semibold text-base">
-                                        Ca sĩ:{" "}
-                                        <span className="text-[#727288] font-semibold text-base">
-                                          {val.singer}
-                                        </span>
-                                      </span>
-                                      <span className="text-[#FFFFFF] font-semibold text-base">
-                                        Sáng tác:{" "}
-                                        <span className="text-[#727288] font-semibold text-base">
-                                          {val.auth}
-                                        </span>
-                                      </span>
-                                      <span className="text-[#FFFFFF] font-semibold text-base">
-                                        Số hợp đồng:{" "}
-                                        <span className="text-[#727288] font-semibold text-base">
-                                          {val.contract_number}
-                                        </span>
-                                      </span>
-                                    </div>
-                                    <div className=" flex justify-between mb-2">
-                                      <div className=" flex gap-2">
-                                        <div className="border-[1px] border-solid border-[#727288] rounded-md px-3 py-1 flex flex-col justify-center items-center">
-                                          <p className="text-[#727288] font-bold text-[8px]">
-                                            Thể loại
-                                          </p>
-                                          <p className="text-[#F5F5FF] text-xs font-medium">
-                                            {val.category}
-                                          </p>
-                                        </div>
-                                        <div className="border-[1px] border-solid border-[#727288] rounded-md px-3 py-1 flex flex-col justify-center items-center">
-                                          <p className="text-[#727288] font-bold text-[8px]">
-                                            Định dạng
-                                          </p>
-                                          <p className="text-[#F5F5FF] text-xs font-medium">
-                                            {val.format}
-                                          </p>
-                                        </div>
-                                        <div className="border-[1px] border-solid border-[#727288] rounded-md px-3 py-1 flex flex-col justify-center items-center">
-                                          <p className="text-[#727288] font-bold text-[8px]">
-                                            Thời lượng
-                                          </p>
-                                          <p className="text-[#F5F5FF] text-xs font-medium">
-                                            {val.duration}
-                                          </p>
-                                        </div>
-                                      </div>
+                  </div>
+                  <Link to="/contract/managecontract/add">
+                    <div className="bg-[#2F2F41] h-[130px] hover:cursor-pointer rounded-l-2xl flex flex-col gap-2 justify-center items-center">
+                      <div className="bg-[#2F2F41] h-full hover:cursor-pointer px-2 rounded-l-2xl flex flex-col gap-2 justify-center items-center">
+                        <div className="w-[52px] h-[52px] rounded-full bg-[#72728880] flex  justify-center items-center">
+                          <i className="fa-solid fa-plus text-[#FF7506] text-2xl font-bold"></i>
+                        </div>
 
-                                      {isChecked ? (
-                                        <div className="flex justify-center items-center">
-                                          <CheckBox
-                                            isChecked={isChecked}
-                                            titleCheckbox=""
-                                          />
-                                        </div>
-                                      ) : (
-                                        <div className="flex justify-center items-center">
-                                          <CheckBoxItem titleCheckbox="" />
-                                        </div>
-                                      )}
-                                    </div>
-                                  </div>
-                                  {/* Thể loại */}
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
+                        <span className="text-[#FFFFFF] text-center font-medium text-xs">
+                          Thêm hợp đồng
+                        </span>
                       </div>
-                      {/* Pagination  */}
+                    </div>
+                  </Link>
+                </div>
+              ) : (
+                <div className="flex gap-10 justify-between ">
+                  <div className=" max-w-[1541px] w-full flex-col gap-6">
+                    <div className="max-w-full">
+                      <div className="max-w-[517px] w-full">
+                        <div className="flex cursor-pointer gap-1 items-center bg-[#2B2B3F] max-h-11 h-full px-6 py-3 rounded-lg ">
+                          <input
+                            className=" focus:outline-none text-base  bg-[#2B2B3F] font-normal text-[#727288] w-full h-full"
+                            placeholder="Tên hợp đồng, tác giả,..."
+                          />
+                          <i className="fa-solid fa-magnifying-glass text-[#F5F5FF]"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-[#2F2F41] mt-6 flex flex-col justify-between gap-[50px] h-[572px] rounded-2xl">
+                      <div className="w-full shrink-0 flex ">
+                        <thead>
+                          <table className="shadow-lg w-full table-fixed tab">
+                            <tr className="text-[#FFAC69]  text-base font-bold bg-[#2F2F41]">
+                              <th className="w-16">STT</th>
+                              <th className="">Số hợp đồng</th>
+                              <th className="w-[252px]">Tên hợp đồng</th>
+                              <th>Ngày tạo</th>
+                              <th>Ngày hiệu lực</th>
+                              <th>Ngày hết hạn</th>
+                              <th>Hiệu lực hợp đồng</th>
+                              <th className="w-28"></th>
+                              <th className="w-32"></th>
+                            </tr>
+                            {exploitation?.map((val: any) => {
+                              return (
+                                <tbody className="bg-[#2F2F41] text-[#FFFFFF]">
+                                  <tr
+                                    key={val.id}
+                                    className="text[#535261] text-[14px] font-normal ">
+                                    <td className="text-center py-3 ">
+                                      {val.id}
+                                    </td>
+                                    <td className="text-center ">
+                                      {val.number}
+                                    </td>
+
+                                    <td className="text-center  ">
+                                      {val.name}
+                                    </td>
+                                    <td className="text-center">
+                                      {new Date(
+                                        val.start_date
+                                      ).toLocaleDateString("en-GB")}
+                                    </td>
+                                    <td className="text-center">
+                                      {new Date(
+                                        val.apply_date
+                                      ).toLocaleDateString("en-GB")}
+                                    </td>
+                                    <td className="text-center">
+                                      {new Date(
+                                        val.expire_date
+                                      ).toLocaleDateString("en-GB")}
+                                    </td>
+                                    <td className="text-center">
+                                      {val.status === "Đang hiệu lực" && (
+                                        <td className="text-center ">
+                                          <div className=" flex  items-center gap-1">
+                                            <i className="fa-solid fa-circle text-[8px] text-[#347AFF]"></i>
+                                            <p>Đang hiệu lực</p>
+                                          </div>
+                                        </td>
+                                      )}
+                                      {val.status === "Đã hủy" && (
+                                        <td className="text-center">
+                                          <div className=" flex items-center gap-1">
+                                            <i className="fa-solid fa-circle text-[8px] text-[#FF4747]"></i>
+                                            <p>Đã huỷ</p>
+                                          </div>
+                                        </td>
+                                      )}
+                                      {val.status === "Mới" && (
+                                        <td className="text-center">
+                                          <div className=" flex items-center gap-1">
+                                            <i className="fa-solid fa-circle text-[8px] text-[#18E306]"></i>
+                                            <p>Mới</p>
+                                          </div>
+                                        </td>
+                                      )}
+                                      {val.status === "Hết hiệu lực" && (
+                                        <td className="text-center">
+                                          <div className=" flex items-center gap-1">
+                                            <i className="fa-solid fa-circle text-[8px] text-[#878890]"></i>
+                                            <p>Hết hiệu lực</p>
+                                          </div>
+                                        </td>
+                                      )}
+                                    </td>
+
+                                    <td>
+                                      <Link
+                                        to={`/contract/managecontract/detail/${val.id}`}>
+                                        <td className=" flex justify-center  text-[#FF7506] underline text-xs font-semibold">
+                                          Xem chi tiết
+                                        </td>
+                                      </Link>
+                                    </td>
+                                    <td>
+                                      <Link
+                                        to={`/contract/managecontract/detail/${val.id}/savecontract`}>
+                                        <td className=" flex justify-center  text-[#FF7506] underline text-xs font-semibold">
+                                          Sao chép hợp đồng
+                                        </td>
+                                      </Link>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              );
+                            })}
+                          </table>
+                        </thead>
+                      </div>
                       <div className=" flex justify-between px-6 mb-4">
                         <div className="flex gap-2 text-[#F5F5FF] items-center">
                           <span>Hiển thị </span>
                           <div className="border-[1px] border-solid border-[#FF7506] rounded">
-                            <span className="px-4 py-2"> 8 </span>
+                            <span className="px-4 py-2"> 13 </span>
                           </div>
                           <span>hàng trong mỗi trang </span>
                         </div>
@@ -421,20 +473,22 @@ const Contract: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                  )}
-                </div>
-                <div className="bg-[#2F2F41] h-[130px] hover:cursor-pointer rounded-l-2xl flex flex-col gap-2 justify-center items-center">
-                  <div className="bg-[#2F2F41] h-full hover:cursor-pointer px-2 rounded-l-2xl flex flex-col gap-2 justify-center items-center">
-                    <div className="w-[52px] h-[52px] rounded-full bg-[#72728880] flex  justify-center items-center">
-                      <i className="fa-solid fa-plus text-[#FF7506] text-2xl font-bold"></i>
-                    </div>
-
-                    <span className="text-[#FFFFFF] text-center font-medium text-xs">
-                      Thêm hợp đồng
-                    </span>
                   </div>
+                  <Link to="/contract/managecontract/addExploitationContract">
+                    <div className="bg-[#2F2F41] h-[130px] hover:cursor-pointer rounded-l-2xl flex flex-col gap-2 justify-center items-center">
+                      <div className="bg-[#2F2F41] h-full hover:cursor-pointer px-2 rounded-l-2xl flex flex-col gap-2 justify-center items-center">
+                        <div className="w-[52px] h-[52px] rounded-full bg-[#72728880] flex  justify-center items-center">
+                          <i className="fa-solid fa-plus text-[#FF7506] text-2xl font-bold"></i>
+                        </div>
+
+                        <span className="text-[#FFFFFF] text-center font-medium text-xs">
+                          Thêm hợp đồng
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

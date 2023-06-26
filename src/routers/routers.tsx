@@ -22,6 +22,18 @@ import AddSchedule from "../pages/schedule/addSchedule";
 import UpdateSchedule from "../pages/schedule/updateSchedule";
 import AddDevices from "../pages/schedule/addDevices";
 import Contract from "../pages/contracts";
+import DetailContract from "../pages/contracts/detailContract";
+import DetailAuthorizationContract from "../pages/contracts/detailAuthorizationContract";
+import AddContract from "../pages/contracts/addContract";
+import UpdateAuthorizationContract from "../pages/contracts/updateAuthorizationContract";
+import UpdateAuthorizationRecord from "../pages/contracts/updateAuthorizationRecord";
+import AddNewRecord from "../pages/contracts/addNewRecord";
+import AddExploitationContract from "../pages/contracts/addExploitationContract";
+import UpdateExploitationContract from "../pages/contracts/updateExploitationContract";
+import SaveContract from "../pages/contracts/saveContract";
+import Devices from "../pages/devices";
+import AddNewDevices from "../pages/devices/addNewDevices";
+import DetailDevices from "../pages/devices/detailDevices";
 
 const Routers = () => {
   return (
@@ -59,6 +71,49 @@ const Routers = () => {
 
       {/* contract  */}
       <Route path="/contract/managecontract" element={<Contract />} />
+      <Route
+        path="/contract/managecontract/addNewRecord"
+        element={<AddNewRecord />}
+      />
+      <Route path="/contract/managecontract/add" element={<AddContract />} />
+      <Route
+        path="/contract/managecontract/addExploitationContract"
+        element={<AddExploitationContract />}
+      />
+      <Route
+        path="/contract/managecontract/detailAuthorizationContract/:id"
+        element={<DetailAuthorizationContract />}
+      />
+      <Route
+        path="/contract/managecontract/detailAuthorizationContract/:id/update"
+        element={<UpdateAuthorizationContract />}
+      />
+      <Route
+        path="/contract/managecontract/detailAuthorizationContract/:id/updateRecord"
+        element={<UpdateAuthorizationRecord />}
+      />
+      <Route
+        path="/contract/managecontract/detail/:id"
+        element={<DetailContract />}
+      />
+      <Route
+        path="/contract/managecontract/detail/:id/savecontract"
+        element={<SaveContract />}
+      />
+      <Route
+        path="/contract/managecontract/detail/:id/updateExploitation"
+        element={<UpdateExploitationContract />}
+      />
+
+      {/* devices  */}
+
+      <Route path="/contract/managedevices" element={<Devices />} />
+      <Route
+        path="/contract/managedevices/detail/:id"
+        element={<DetailDevices />}
+      />
+
+      <Route path="/contract/managedevices/add" element={<AddNewDevices />} />
     </Routes>
   );
 };

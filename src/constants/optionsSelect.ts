@@ -34,6 +34,26 @@ export const optionsCategory = [
   },
 ];
 
+// Thể loại Record
+export const optionsCategoryRecord = [
+  {
+    value: 1,
+    label: "Rap",
+  },
+  {
+    value: 2,
+    label: "Ballad",
+  },
+  {
+    value: 3,
+    label: "Rock n Roll",
+  },
+  {
+    value: 4,
+    label: "R&B",
+  },
+];
+
 // Hạn ngày
 export const optionsExpiryDate = [
   {
@@ -115,5 +135,53 @@ export const optionsStatusContract = [
   {
     value: 4,
     label: "Huỷ",
+  },
+];
+
+// Quốc tịch
+export const optionsCountry = [
+  {
+    value: 1,
+    label: "Việt Nam",
+  },
+  {
+    value: 2,
+    label: "Chinese",
+  },
+  {
+    value: 3,
+    label: "Japanese",
+  },
+];
+
+// Nhóm tài khoản
+export const optionsAccountGroup = [
+  {
+    value: 1,
+    label: "Tất cả",
+  },
+  {
+    value: 2,
+    label: "Công ty TMCP Bách Hóa Xanh",
+  },
+  {
+    value: 3,
+    label: "Công ty TNHH XYZ",
+  },
+  {
+    value: 4,
+    label: "Công ty TMCP Adora",
+  },
+];
+
+// Ẩn hiện cột
+export const optionsStatusColumn = [
+  {
+    value: 1,
+    label: "Ẩn",
+  },
+  {
+    value: 2,
+    label: "Hiện",
   },
 ];

@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import Paginations from "../../components/pagination";
 import CheckBoxItem from "../../components/checkboxItem";
+initTE({ Modal, Ripple });
 
 const Schedule: React.FC = () => {
   const [schedule, setSchedule] = useState([]);
 
   useEffect(() => {
+    initTE({ Modal, Ripple });
     axios
       .get("http://localhost:4444/schedule")
       .then((res) => {
@@ -19,7 +21,6 @@ const Schedule: React.FC = () => {
       .catch((err) => {
         console.log(err);
       });
-    initTE({ Modal, Ripple });
   }, []);
 
   return (

@@ -136,7 +136,7 @@ const Navbar = () => {
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageaccount">
+                      to="/contract/managedevices">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Quản lý thiết bị
