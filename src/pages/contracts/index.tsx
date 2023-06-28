@@ -3,7 +3,6 @@ import Navbar from "../../components/navbar";
 import Header from "../../components/header";
 import axios from "axios";
 import Paginations from "../../components/pagination";
-import CheckBox from "../../components/checkbox";
 import { Select } from "antd";
 import "../../sass/selectedField.scss";
 import {
@@ -11,8 +10,8 @@ import {
   optionsStatusContract,
 } from "../../constants/optionsSelect";
 import { Link } from "react-router-dom";
-import CheckBoxItem from "../../components/checkboxItem";
 import { Modal, Ripple, initTE } from "tw-elements";
+initTE({ Modal, Ripple });
 
 const Contract: React.FC = () => {
   const [contract, setContract] = useState([]);

@@ -18,7 +18,7 @@ const Navbar = () => {
             style={({ isActive }) => {
               return {
                 backgroundColor: isActive ? "" : "",
-                width: isActive ? "200px" : "",
+                width: isActive ? "100%" : "",
                 height: isActive ? "48px" : "",
                 color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
@@ -98,9 +98,7 @@ const Navbar = () => {
                 </div>
               </NavLink>
 
-              <div className="invisible rounded-lg opacity-0 absolute z-30 bg-[#30303F]  w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
-                <div className=" w-full h-[1px] bg-[#30303F] rounded-t-[10px]"></div>
-
+              <div className="invisible left-[170px] top-0 rounded-lg opacity-0 absolute z-30 bg-[#30303F]  w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
                 <div className="flex flex-col items-center w-full rounded-b-[10px]">
                   {/* Thông báo 1 */}
                   <div className="w-full ">
@@ -152,13 +150,13 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageuser">
+                      to="/contract/authorized">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Đơn vị uỷ quyền
@@ -179,7 +177,7 @@ const Navbar = () => {
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageuser">
+                      to="/contract/operators">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Đơn vị sử dụng
@@ -196,16 +194,15 @@ const Navbar = () => {
           <NavLink
             style={({ isActive }) => {
               return {
-                backgroundColor: isActive ? "#FF7506" : "",
                 width: isActive ? "100%" : "100%",
                 height: isActive ? "48px" : "",
-                color: isActive ? "#FFFFFF" : "#C8C8DB",
+                color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
             }}
-            to="/setting">
+            to="/revenue">
             <div className="relative group">
-              <NavLink to="/setting/managerole">
+              <NavLink to="/revenue/report">
                 {" "}
                 <div className="w-full flex justify-center items-center gap-6">
                   <div className="flex flex-col items-center gap-1 py-2 ml-7">
@@ -218,7 +215,7 @@ const Navbar = () => {
                 </div>
               </NavLink>
 
-              <div className="invisible rounded-lg opacity-0 absolute z-30 bg-[#30303F]  w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
+              <div className="invisible left-[170px] top-0 rounded-lg opacity-0 absolute z-30 bg-[#30303F]  w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
                 <div className=" w-full h-[1px] bg-[#30303F] rounded-t-[10px]"></div>
 
                 <div className="flex flex-col items-center w-full rounded-b-[10px]">
@@ -228,13 +225,13 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/managerole">
+                      to="/revenue/report">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Báo cáo doanh thu
@@ -250,13 +247,13 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageaccount">
+                      to="/revenue/history">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Lịch sử đối soát
@@ -272,13 +269,13 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageuser">
+                      to="/revenue/distributor">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Phân phối doanh thu
@@ -328,7 +325,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
@@ -350,7 +347,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
@@ -372,7 +369,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
@@ -392,7 +389,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
@@ -412,7 +409,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
@@ -467,7 +464,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
@@ -489,7 +486,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",
@@ -511,7 +508,7 @@ const Navbar = () => {
                       style={({ isActive }) => {
                         return {
                           backgroundColor: isActive ? "#FF7506" : "",
-                          width: isActive ? "200px" : "",
+                          width: isActive ? "100%" : "",
                           height: isActive ? "100%" : "",
                           color: isActive ? "#FFFFFF" : "#FFFFFF",
                           display: isActive ? "inline-block" : "",

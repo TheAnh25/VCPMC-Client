@@ -34,6 +34,21 @@ import SaveContract from "../pages/contracts/saveContract";
 import Devices from "../pages/devices";
 import AddNewDevices from "../pages/devices/addNewDevices";
 import DetailDevices from "../pages/devices/detailDevices";
+import Operators from "../pages/Operators";
+import DetailOperator from "../pages/Operators/detailOperator";
+import DetailCustomer from "../pages/Operators/detailCustomer";
+import UpdateCustomer from "../pages/Operators/updateCustomer";
+import AddCustomer from "../pages/Operators/addCustomer";
+import Authorized from "../pages/Authorized";
+import UpdateAuthorized from "../pages/Authorized/updateAuthorized";
+import Report from "../pages/Revenue/reportsRevenue";
+import History from "../pages/Revenue/History/history";
+import Distributor from "../pages/Revenue/Distributor/distributor";
+import DetailReport from "../pages/Revenue/reportsRevenue/detailReport";
+import DetailRevenue from "../pages/Revenue/reportsRevenue/detailRevenue";
+import SynchDevice from "../pages/Revenue/reportsRevenue/synchDevice";
+import DetailDistributor from "../pages/Revenue/Distributor/detailDistributor";
+import DetailHistory from "../pages/Revenue/History/detailHistory";
 
 const Routers = () => {
   return (
@@ -106,14 +121,58 @@ const Routers = () => {
       />
 
       {/* devices  */}
-
       <Route path="/contract/managedevices" element={<Devices />} />
       <Route
         path="/contract/managedevices/detail/:id"
         element={<DetailDevices />}
       />
-
       <Route path="/contract/managedevices/add" element={<AddNewDevices />} />
+
+      {/* Operators  */}
+      <Route path="/contract/operators" element={<Operators />} />
+      <Route
+        path="/contract/operators/detail/:id"
+        element={<DetailOperator />}
+      />
+      <Route
+        path="/contract/operators/detail/:id/addcustomer"
+        element={<AddCustomer />}
+      />
+      <Route
+        path="/contract/operators/detail/:id/info"
+        element={<DetailCustomer />}
+      />
+      <Route
+        path="/contract/operators/detail/:id/info/update"
+        element={<UpdateCustomer />}
+      />
+      {/* Authorized  */}
+      <Route path="/contract/authorized" element={<Authorized />} />
+      <Route
+        path="/contract/authorized/:id/update"
+        element={<UpdateAuthorized />}
+      />
+      {/* Revenue  */}
+      {/* report  */}
+      <Route path="/revenue/report" element={<Report />} />
+      <Route path="/revenue/report/detailReport" element={<DetailReport />} />
+      <Route
+        path="/revenue/report/detailReport/synchdevice/:id"
+        element={<SynchDevice />}
+      />
+      <Route
+        path="/revenue/report/detailReport/detailrevenue/:id"
+        element={<DetailRevenue />}
+      />
+      {/* history */}
+      <Route path="/revenue/history" element={<History />} />
+      <Route path="/revenue/history/detail/:id" element={<DetailHistory />} />
+      {/* distributor  */}
+      <Route path="/revenue/distributor" element={<Distributor />} />
+      <Route
+        path="/revenue/distributor/detail/:id"
+        element={<DetailDistributor />}
+      />
     </Routes>
   );
 };

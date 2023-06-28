@@ -185,3 +185,78 @@ export const optionsStatusColumn = [
     label: "Hiện",
   },
 ];
+
+// Role
+export const optionsRole = [
+  {
+    value: 1,
+    label: "QA",
+  },
+  {
+    value: 2,
+    label: "QC",
+  },
+];
+
+// Report
+export const optionsTimeReport = [
+  {
+    value: 1,
+    label: "Theo tháng",
+  },
+  {
+    value: 2,
+    label: "Theo quý",
+  },
+];
+
+export const optionsMonthReport = [
+  {
+    value: 1,
+    label: "Tháng 1",
+  },
+  {
+    value: 2,
+    label: "Tháng 2",
+  },
+  {
+    value: 3,
+    label: "Tháng 3",
+  },
+  {
+    value: 4,
+    label: "Tháng 4",
+  },
+  {
+    value: 5,
+    label: "Tháng 5",
+  },
+  {
+    value: 6,
+    label: "Tháng 6",
+  },
+  {
+    value: 7,
+    label: "Tháng 7",
+  },
+  {
+    value: 8,
+    label: "Tháng 8",
+  },
+  {
+    value: 9,
+    label: "Tháng 9",
+  },
+  {
+    value: 10,
+    label: "Tháng 10",
+  },
+  {
+    value: 11,
+    label: "Tháng 11",
+  },
+  {
+    value: 12,
+    label: "Tháng 12",
+  },
+];
