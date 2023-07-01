@@ -49,6 +49,14 @@ import DetailRevenue from "../pages/Revenue/reportsRevenue/detailRevenue";
 import SynchDevice from "../pages/Revenue/reportsRevenue/synchDevice";
 import DetailDistributor from "../pages/Revenue/Distributor/detailDistributor";
 import DetailHistory from "../pages/Revenue/History/detailHistory";
+import Managerole from "../pages/settings/managerole";
+import System from "../pages/settings/system";
+import Infocategory from "../pages/settings/infocategory";
+import ContractCategory from "../pages/settings/contractCategory";
+import UpdateWarning from "../pages/settings/contractCategory/updateWarning";
+import UpdateContract from "../pages/settings/contractCategory/updateContract";
+import UpdateCategory from "../pages/settings/infocategory/updateCategory";
+import ChangeRevenue from "../pages/settings/changerevenue";
 
 const Routers = () => {
   return (
@@ -173,6 +181,21 @@ const Routers = () => {
         path="/revenue/distributor/detail/:id"
         element={<DetailDistributor />}
       />
+      {/* setting  */}
+      <Route path="/setting/managerole" element={<Managerole />} />
+      <Route path="/setting/system" element={<System />} />
+      <Route path="/setting/infocategory" element={<Infocategory />} />
+      <Route path="/setting/infocategory/update" element={<UpdateCategory />} />
+      <Route path="/setting/categorycontract" element={<ContractCategory />} />
+      <Route
+        path="/setting/categorycontract/updateContract"
+        element={<UpdateContract />}
+      />
+      <Route
+        path="/setting/categorycontract/updateWarning"
+        element={<UpdateWarning />}
+      />
+      <Route path="/setting/changerevenue" element={<ChangeRevenue />} />
     </Routes>
   );
 };

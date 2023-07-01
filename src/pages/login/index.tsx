@@ -6,17 +6,9 @@ import yellowstar from "../../assets/images/saovang.png";
 import CheckBox from "../../components/checkbox";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
-import { useSelector } from "react-redux";
-import { State } from "../../store";
 import toast from "react-hot-toast";
-import {
-  clearLoginSuccess,
-  login as loginAction,
-} from "../../store/actions/userActions";
+import { login as loginAction } from "../../store/actions/userActions";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import Dashboard from "../dashboard";
-import { Validation } from "../../constants/validation";
 
 const Login = () => {
   const [account, setAccount] = useState("");
@@ -38,26 +30,6 @@ const Login = () => {
   };
 
   const { user, success, error } = useAppSelector((state) => state.user);
-
-  // const handleSubmitLogin = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   axios
-  //     .post("http://localhost:4444/login", { account, password })
-  //     .then((res) => {
-  //       setUser(res.data);
-  //       toast.success("Login success !");
-  //       navigate("/");
-  //     })
-  //     .catch((err) => {
-  //       if (account === "") {
-  //         setErrorMessage("Tên đăng nhập và mật khẩu không được bỏ trống ");
-  //       } else {
-  //         setErrorMessage("Sai tên đăng nhập hoặc mật khẩu");
-  //       }
-
-  //       toast.error("Login Failed !");
-  //     });
-  // };
 
   console.log("user", user);
 

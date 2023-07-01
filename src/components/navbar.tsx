@@ -293,10 +293,9 @@ const Navbar = () => {
           <NavLink
             style={({ isActive }) => {
               return {
-                backgroundColor: isActive ? "#FF7506" : "",
                 width: isActive ? "100%" : "100%",
                 height: isActive ? "48px" : "",
-                color: isActive ? "#FFFFFF" : "#C8C8DB",
+                color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
             }}
@@ -315,7 +314,7 @@ const Navbar = () => {
                 </div>
               </NavLink>
 
-              <div className="invisible rounded-lg opacity-0 absolute z-30 bg-[#30303F]  w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
+              <div className="invisible left-[170px] top-0 rounded-lg opacity-0 absolute z-30 bg-[#30303F]  w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
                 <div className=" w-full h-[1px] bg-[#30303F] rounded-t-[10px]"></div>
 
                 <div className="flex flex-col items-center w-full rounded-b-[10px]">
@@ -353,7 +352,7 @@ const Navbar = () => {
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageaccount">
+                      to="/setting/system">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Cấu hình
@@ -375,7 +374,7 @@ const Navbar = () => {
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageuser">
+                      to="/setting/categorycontract">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Quản lý hợp đồng
@@ -395,7 +394,7 @@ const Navbar = () => {
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageuser">
+                      to="/setting/infocategory">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Thông tin tác phẩm
@@ -415,7 +414,7 @@ const Navbar = () => {
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageuser">
+                      to="/setting/changerevenue">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Chu kỳ đối soát
@@ -454,7 +453,7 @@ const Navbar = () => {
                 </div>
               </NavLink>
 
-              <div className="invisible rounded-lg opacity-0 absolute z-30 bg-[#30303F]  w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
+              <div className="invisible left-[170px] top-0 rounded-lg opacity-0 absolute z-30 bg-[#30303F]  w-full shadow-lg group-hover:opacity-100 group-hover:visible group-hover:mt-0">
                 <div className=" w-full h-[1px] bg-[#30303F] rounded-t-[10px]"></div>
 
                 <div className="flex flex-col items-center w-full rounded-b-[10px]">
