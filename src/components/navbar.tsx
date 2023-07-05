@@ -332,7 +332,7 @@ const Navbar = () => {
                       }}
                       to="/setting/managerole">
                       <div className="w-full ">
-                        <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
+                        <div className="px-3 py-2 flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Phân quyền người dùng
                         </div>
                       </div>
@@ -431,16 +431,15 @@ const Navbar = () => {
           <NavLink
             style={({ isActive }) => {
               return {
-                backgroundColor: isActive ? "#FF7506" : "",
                 width: isActive ? "100%" : "100%",
                 height: isActive ? "48px" : "",
-                color: isActive ? "#FFFFFF" : "#C8C8DB",
+                color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
             }}
-            to="/setting">
+            to="/support">
             <div className="relative group">
-              <NavLink to="/setting/managerole">
+              <NavLink to="/support/instructions">
                 {" "}
                 <div className="w-full flex justify-center items-center gap-6">
                   <div className="flex flex-col items-center gap-1 py-2 ml-7">
@@ -469,7 +468,7 @@ const Navbar = () => {
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/managerole">
+                      to="/support/instructions">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Hướng dẫn sử dụng
@@ -491,7 +490,7 @@ const Navbar = () => {
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageaccount">
+                      to="/support/download">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Tải app
@@ -513,7 +512,7 @@ const Navbar = () => {
                           display: isActive ? "inline-block" : "",
                         };
                       }}
-                      to="/setting/manageuser">
+                      to="/support/feedback">
                       <div className="w-full ">
                         <div className="px-3 py-2  flex text-base font-normal hover:cursor-pointer hover:bg-[#3E3E5B] hover:text-white">
                           Feedback

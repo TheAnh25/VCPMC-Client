@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/navbar";
 import Header from "../../../components/header";
-import Paginations from "../../../components/pagination";
 import { Link } from "react-router-dom";
 import axios from "axios";
 

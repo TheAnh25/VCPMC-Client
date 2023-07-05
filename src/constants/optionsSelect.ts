@@ -260,3 +260,35 @@ export const optionsMonthReport = [
     label: "Tháng 12",
   },
 ];
+
+// Report
+export const optionsFeedback = [
+  {
+    value: 1,
+    label: "Tài khoản",
+  },
+  {
+    value: 2,
+    label: "Quản lý doanh thu",
+  },
+  {
+    value: 3,
+    label: "Vấn đề bản quyền",
+  },
+  {
+    value: 4,
+    label: "Khác",
+  },
+];
+
+// Role
+export const optionsRoleUsers = [
+  {
+    value: 1,
+    label: "Admin",
+  },
+  {
+    value: 2,
+    label: "Users",
+  },
+];

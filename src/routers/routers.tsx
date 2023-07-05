@@ -57,6 +57,13 @@ import UpdateWarning from "../pages/settings/contractCategory/updateWarning";
 import UpdateContract from "../pages/settings/contractCategory/updateContract";
 import UpdateCategory from "../pages/settings/infocategory/updateCategory";
 import ChangeRevenue from "../pages/settings/changerevenue";
+import Instructions from "../pages/supports/instructions";
+import Download from "../pages/supports/downloads";
+import Feedback from "../pages/supports/feedback";
+import UpdateUsers from "../pages/settings/managerole/updateUsers";
+import AddUsers from "../pages/settings/managerole/addUsers";
+import UpdateRoles from "../pages/settings/managerole/updateRoles";
+import AddRoles from "../pages/settings/managerole/addRoles";
 
 const Routers = () => {
   return (
@@ -183,6 +190,13 @@ const Routers = () => {
       />
       {/* setting  */}
       <Route path="/setting/managerole" element={<Managerole />} />
+      <Route path="/setting/managerole/add" element={<AddUsers />} />
+      <Route path="/setting/managerole/addRoles" element={<AddRoles />} />
+      <Route
+        path="/setting/managerole/updateRoles/:id"
+        element={<UpdateRoles />}
+      />
+      <Route path="/setting/managerole/update/:id" element={<UpdateUsers />} />
       <Route path="/setting/system" element={<System />} />
       <Route path="/setting/infocategory" element={<Infocategory />} />
       <Route path="/setting/infocategory/update" element={<UpdateCategory />} />
@@ -196,6 +210,10 @@ const Routers = () => {
         element={<UpdateWarning />}
       />
       <Route path="/setting/changerevenue" element={<ChangeRevenue />} />
+      {/* support  */}
+      <Route path="/support/instructions" element={<Instructions />} />
+      <Route path="/support/download" element={<Download />} />
+      <Route path="/support/feedback" element={<Feedback />} />
     </Routes>
   );
 };
