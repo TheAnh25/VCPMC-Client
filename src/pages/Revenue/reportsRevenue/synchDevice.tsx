@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../../../components/navbar";
 import Header from "../../../components/header";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Paginations from "../../../components/pagination";
 
@@ -65,11 +65,13 @@ const SynchDevice: React.FC = () => {
                   <div>
                     <i className="fa-solid fa-angle-right text-[#FFAC69]"></i>
                   </div>
-                  <div>
-                    <p className="  font-semibold text-[16px] text-[#7E7D88] ">
-                      Báo cáo chi tiết
-                    </p>
-                  </div>
+                  <Link to="/revenue/report/detailReport">
+                    <div>
+                      <p className="  font-semibold text-[16px] text-[#7E7D88] ">
+                        Báo cáo chi tiết
+                      </p>
+                    </div>
+                  </Link>
                   <div>
                     <i className="fa-solid fa-angle-right text-[#FFAC69]"></i>
                   </div>

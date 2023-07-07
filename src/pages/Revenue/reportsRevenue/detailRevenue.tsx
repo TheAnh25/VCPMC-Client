@@ -59,11 +59,13 @@ const DetailRevenue: React.FC = () => {
                   <div>
                     <i className="fa-solid fa-angle-right text-[#FFAC69]"></i>
                   </div>
-                  <div>
-                    <p className="  font-semibold text-[16px] text-[#7E7D88] ">
-                      Báo cáo chi tiết
-                    </p>
-                  </div>
+                  <Link to="/revenue/report/detailReport">
+                    <div>
+                      <p className="text-[#7E7D88] text-[16px] font-semibold ">
+                        Báo cáo chi tiết
+                      </p>
+                    </div>
+                  </Link>
                   <div>
                     <i className="fa-solid fa-angle-right text-[#FFAC69]"></i>
                   </div>

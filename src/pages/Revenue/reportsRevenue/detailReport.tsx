@@ -52,6 +52,7 @@ const DetailReport: React.FC = () => {
                   <div>
                     <i className="fa-solid fa-angle-right text-[#FFAC69]"></i>
                   </div>
+
                   <div>
                     <p className="text-[#FF7506] text-[16px] font-semibold ">
                       Báo cáo chi tiết

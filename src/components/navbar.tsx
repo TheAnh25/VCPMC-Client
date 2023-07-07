@@ -19,7 +19,7 @@ const Navbar = () => {
               return {
                 backgroundColor: isActive ? "" : "",
                 width: isActive ? "100%" : "",
-                height: isActive ? "48px" : "",
+                height: isActive ? "" : "",
                 color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
@@ -38,7 +38,7 @@ const Navbar = () => {
               return {
                 backgroundColor: isActive ? "" : "",
                 width: isActive ? "200px" : "",
-                height: isActive ? "48px" : "",
+                height: isActive ? "" : "",
                 color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
@@ -58,7 +58,7 @@ const Navbar = () => {
               return {
                 backgroundColor: isActive ? "" : "",
                 width: isActive ? "200px" : "",
-                height: isActive ? "48px" : "",
+                height: isActive ? "" : "",
                 color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
@@ -78,7 +78,7 @@ const Navbar = () => {
             style={({ isActive }) => {
               return {
                 width: isActive ? "100%" : "100%",
-                height: isActive ? "48px" : "",
+                height: isActive ? "" : "",
                 color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
@@ -195,7 +195,7 @@ const Navbar = () => {
             style={({ isActive }) => {
               return {
                 width: isActive ? "100%" : "100%",
-                height: isActive ? "48px" : "",
+                height: isActive ? "" : "",
                 color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
@@ -294,7 +294,7 @@ const Navbar = () => {
             style={({ isActive }) => {
               return {
                 width: isActive ? "100%" : "100%",
-                height: isActive ? "48px" : "",
+                height: isActive ? "" : "",
                 color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
@@ -432,7 +432,7 @@ const Navbar = () => {
             style={({ isActive }) => {
               return {
                 width: isActive ? "100%" : "100%",
-                height: isActive ? "48px" : "",
+                height: isActive ? "" : "",
                 color: isActive ? "#FF7506" : "#C8C8DB",
                 display: isActive ? "inline-block" : "",
               };
